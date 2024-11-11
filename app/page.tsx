@@ -29,8 +29,8 @@ export default function Home() {
       {/* Hero Section */}
       <section>
         <div className="sm:flex items-center">
-          <div className="mt-28 mr-10 xl:mx-14">
-            <div className="flex flex-col mx-2 sm:mx-10">
+          <div className="mt-28 mr-10 sm:mx-0 xl:mx-10">
+            <div className="flex flex-col mx-2 sm:mx-0 xl:mx-10">
               <div className="tracking-tightest -mb-8">
                 <FlyIn text={"CATCH"} />
               </div>
