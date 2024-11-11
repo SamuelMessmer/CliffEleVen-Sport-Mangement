@@ -1,101 +1,269 @@
+"use client";
+import CustomCarousel from "./components/CustomCarousel";
 import Image from "next/image";
+import FlyIn from "./components/FlyIn";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import FlyInSmall from "./components/FlyInSmall";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const textRef = useRef(null);
+  const textInView = useInView(textRef);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const aboutRef = useRef(null);
+  const aboutInView = useInView(aboutRef);
+
+  useEffect(() => {
+    console.log(`${textInView ? "is inView" : "is not inView"}`);
+  });
+
+  useEffect(() => {
+    console.log(
+      `${aboutInView ? "is inView(About ME)" : "is not inView(About ME)"}`
+    );
+  });
+
+  return (
+    <div className="overflow-hidden sm:overflow-visible sm:-mt-[60px]">
+      {/* Hero Section */}
+      <section>
+        <div className="sm:flex items-center">
+          <div className="mt-28 mr-10 xl:mx-14">
+            <div className="flex flex-col mx-2 sm:mx-10">
+              <div className="tracking-tightest -mb-8">
+                <FlyIn text={"CATCH"} />
+              </div>
+              <div className="tracking-tightest text-[#3550FF] self-end sm:self-center -mb-8">
+                {" "}
+                <FlyIn text={"YOUR"} />
+              </div>
+              <div className="tracking-tightest self-center sm:self-end">
+                {" "}
+                <FlyIn text={"DREAMS"} />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-5 mt-12 mx-6">
+              <div className="flex ">
+                <p className="wide-text">-</p>
+                <p className="wide-text">Für alle, die hoch hinaus wollen</p>
+              </div>
+              <div className="flex ">
+                <p className="wide-text">-</p>
+                <p className="wide-text">
+                  Wir begleiten Talente zum Erfolg und machen Ihre Träume wahr
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-end mx-5">
+              <Image
+                src={"/images/arrow.png"}
+                alt="Pfeil bild"
+                height={150}
+                width={150}
+              />
+              <div className="self-end bg-[#3550FF] px-4 py-2 shadow-2xl inner-shadow  font-extrabold rounded-md  text-white">
+                <Link href="/Kontakt">
+                  <button>KONTAKTIERE UNS</button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div
+            className="
+            w-full
+            h-screen
+
+            p-24
+            relative
+            overflow-hidden
+            hidden 
+            sm:block
+            z-10
+						
+            bg-[url('/images/osei.png')]
+            bg-cover
+            bg-no-repeat
+            bg-center
+
+            before:content-['']
+            before:absolute
+            before:inset-0
+            before:block
+            before:bg-gradient-to-r
+            before:from-[#0F0F0F]
+            before:to-transparent
+            before:opacity-100
+            before:z-[-5]"
+          ></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Werbung */}
+      <section>
+        <div className="mt-24 mb-32">
+          <div className="flex flex-col mx-6 sm:justify-center sm:items-center sm:mx-14 xl:mx-32">
+            <div className="flex flex-col sm:w-[600px] sm:self-start sm:ml-64">
+              <h1 className="tracking-tightest block sm:hidden">Für Top</h1>
+              <h1 className="tracking-tightest text-[#3550FF] self-end  block sm:hidden">
+                Athleten
+              </h1>
+
+              <h1 className="tracking-tightest self-start hidden sm:block">
+                Mehr als
+              </h1>
+              <h1 className="tracking-tightest text-[#3550FF] self-end  hidden sm:block">
+                12 top Athleten
+              </h1>
+            </div>
+
+            <div className="sm:flex sm:items-center sm:justify-center sm:mx-20 sm:gap-14">
+              <div className="mt-10 mx-8">
+                <Image
+                  src={"/images/osei.png"}
+                  alt="Spieler Bild"
+                  height={1920}
+                  width={1080}
+                  className="rounded-md object-cover h-96 sm:h-[550px] sm:w-[700p]"
+                />
+              </div>
+              <div className="flex flex-col gap-5 mt-12 mx-6">
+                <p className="wide-text sm:wide-text-large">
+                  Werde Teil unseres Netzwerks, und mach dich bereit für
+                  einzigartige Chancen!
+                </p>
+                <div ref={textRef} className="flex flex-col gap-4 ml-4 text-xl">
+                  <div className="flex text-[#3550FF]">
+                    <p className="wide-text sm:wide-text-large">-</p>
+                    <div className="wide-text sm:wide-text-large">
+                      {textInView && (
+                        <FlyInSmall text={"Meetings mit Spielern"} />
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex text-[#3550FF]">
+                    <p className="wide-text sm:wide-text-large">-</p>
+                    <div className="wide-text block sm:hidden sm:wide-text-large">
+                      {textInView && (
+                        <FlyInSmall text={"Coaching von unserem    Team"} />
+                      )}
+                    </div>
+                    <div className="wide-text hidden sm:block sm:wide-text-large">
+                      {textInView && (
+                        <FlyInSmall text={"Coaching von unserem Team"} />
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center text-[#3550FF]">
+                    <p className="wide-text sm:wide-text-large">-</p>
+                    <div className="wide-text sm:wide-text-large">
+                      {textInView && <FlyInSmall text={"Tipps von Profis"} />}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden sm:flex sm:flex-col sm:w-[450px] sm:self-start sm:mt-24">
+                  <h1 className="tracking-tightest self-center mr-14">
+                    Werde{" "}
+                  </h1>
+                  <h1 className="tracking-tightest self-end -mr-20">
+                    einer davon
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bilder Carousel */}
+      <section>
+        <div className="block sm:hidden mt-24 sm:mt-40 z-10">
+          <CustomCarousel />
+        </div>
+      </section>
+
+      {/* Bilder Desktop */}
+      <section className="hidden sm:block overflow-visible">
+        <div className="flex items-center justify-center">
+          <div className="flex flex-col justify-center items-center w-[550px]">
+            <div className="sticky top-32 mb-[300px] self-start">
+              <img src="/images/terry.png" className="w-[250px] h-[350px]" />
+            </div>
+
+            <div className="sticky top-32 mb-[300px] self-end">
+              <img src="/images/osei.png" className="w-[250px] h-[250px]" />
+            </div>
+
+            <div className="sticky top-[60vh] mb-[300px] self-start">
+              <img src="/images/foto2.png" className="w-[250px] h-[250px]" />
+            </div>
+
+            <div className="sticky top-[48vh] mb-[300px] self-end">
+              <img src="/images/sanden.png" className="w-[250px] h-[350px]" />
+            </div>
+
+            <div className="sticky top-[48vh] mb-[300px] self-end h-40"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Me */}
+      <section>
+        <div className="mt-24 sm:-mt-[200px]">
+          <div className="sm:flex sm:justify-center sm:items-center sm:mx-20">
+            <div className="hidden sm:block mt-10 mx-8">
+              <Image
+                src={"/images/cliff.png"}
+                alt="Spieler Bild"
+                height={1920}
+                width={1080}
+                className="rounded-md object-cover w-[700px]"
+              />
+            </div>
+
+            <div className="sm:w-3/4 sm:mx-14">
+              <div ref={aboutRef} className="flex flex-col max-w-[400px] mx-10">
+                <h1 className="tracking-tightest">
+                  {aboutInView && <FlyIn text={"ABOUT"} />}
+                </h1>
+                <h1 className="text-6xl font-extrabold text-[#3550FF] self-end -mt-12">
+                  {aboutInView && <FlyIn text={"ME"} />}
+                </h1>
+              </div>
+
+              <div className="block sm:hidden mt-10 mx-8">
+                <Image
+                  src={"/images/cliff.png"}
+                  alt="Spieler Bild"
+                  height={1920}
+                  width={1080}
+                  className="rounded-md object-cover h-96"
+                />
+              </div>
+
+              <div className="flex flex-col mt-12 mx-6">
+                <h1 className="text-[#3550FF] text-2xl font-extrabold">
+                  Hi! Ich bin Cliff,
+                </h1>
+                <p className="text-xl">
+                  und seit fünf Jahren lebe ich meinen Traum als selbstständiger
+                  Fußballmanager. Mein Job bringt mich quer durch Europa, immer
+                  auf der Suche nach den besten Möglichkeiten für meine Spieler.
+                  Mein Ziel? Ganz einfach: Ich möchte jedem meiner Klienten
+                  dabei helfen, seine persönlichen und sportlichen Ziele zu
+                  erreichen. Ob Karriereschritte,Vertragsverhandlungen oder
+                  gezielte Weiterentwicklung – ich bin für meine Spieler da und
+                  setze alles daran, dass sie ihr volles Potenzial ausschöpfen
+                  und ihre Träume verwirklichen können.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

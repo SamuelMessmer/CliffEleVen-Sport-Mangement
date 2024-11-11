@@ -2,20 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+body {
+  color: #ffffff;
+  background: #0F0F0F;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.slideInFromTop {
+  animation: slideInFromTop 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.slideIn {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.slideInLeft {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+
+.tracking-tightest {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -8px;
+}
+
+.wide-text {
+  font-size: 1rem;
+  letter-spacing: 6px;
+}
+
+.wide-text-large {
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+}
+
+.inner-shadow {
+    box-shadow: inset 4px 3px 9px -6px  white;
+}
+
+.centerElement {
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin-top: 6rem;
+
+  z-index: 50; 
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    margin-bottom: 200px;
+  }
+  
+  100% {
+    opacity: 1;
+    margin-bottom: 25px;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.stickyElement {
+  position: sticky;
+  top: 20px; 
 }
