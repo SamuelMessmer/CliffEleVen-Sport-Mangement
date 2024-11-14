@@ -3,7 +3,7 @@ import CustomCarousel from "./components/CustomCarousel";
 import Image from "next/image";
 import FlyIn from "./components/FlyIn";
 import { useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import FlyInSmall from "./components/FlyInSmall";
 
@@ -13,16 +13,6 @@ export default function Home() {
 
   const aboutRef = useRef(null);
   const aboutInView = useInView(aboutRef);
-
-  useEffect(() => {
-    console.log(`${textInView ? "is inView" : "is not inView"}`);
-  });
-
-  useEffect(() => {
-    console.log(
-      `${aboutInView ? "is inView(About ME)" : "is not inView(About ME)"}`
-    );
-  });
 
   return (
     <div className="overflow-hidden sm:overflow-visible sm:-mt-[60px]">
@@ -190,19 +180,43 @@ export default function Home() {
         <div className="flex items-center justify-center">
           <div className="flex flex-col justify-center items-center w-[550px]">
             <div className="sticky top-32 mb-[300px] self-start">
-              <img src="/images/terry.png" className="w-[250px] h-[350px]" />
+              <Image
+                src="/images/terry.png"
+                className="w-[250px] h-[350px]"
+                alt="Picture animation"
+                width={1920}
+                height={1080}
+              />
             </div>
 
             <div className="sticky top-32 mb-[300px] self-end">
-              <img src="/images/osei.png" className="w-[250px] h-[250px]" />
+              <Image
+                src="/images/osei.png"
+                className="w-[250px] h-[250px]"
+                alt="Picture animation"
+                width={1920}
+                height={1080}
+              />
             </div>
 
             <div className="sticky top-[60vh] mb-[300px] self-start">
-              <img src="/images/foto2.png" className="w-[250px] h-[250px]" />
+              <Image
+                src="/images/foto2.png"
+                className="w-[250px] h-[250px]"
+                alt="Picture animation"
+                width={1920}
+                height={1080}
+              />
             </div>
 
             <div className="sticky top-[48vh] mb-[300px] self-end">
-              <img src="/images/sanden.png" className="w-[250px] h-[350px]" />
+              <Image
+                src="/images/sanden.png"
+                className="w-[250px] h-[350px]"
+                alt="Picture animation"
+                width={1920}
+                height={1080}
+              />
             </div>
 
             <div className="sticky top-[48vh] mb-[300px] self-end h-40"></div>
