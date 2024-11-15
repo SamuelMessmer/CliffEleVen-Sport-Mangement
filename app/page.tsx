@@ -1,7 +1,6 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
 
 import { useInView } from "framer-motion";

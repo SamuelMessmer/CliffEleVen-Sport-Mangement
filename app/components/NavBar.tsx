@@ -181,7 +181,11 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div className={`${NavWidth ? "block animate-slideInLeft slideInLeft" : "hidden"}`}>
+            <div
+              className={`${
+                NavWidth ? "block animate-slideInLeft slideInLeft" : "hidden"
+              }`}
+            >
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
@@ -193,11 +197,10 @@ const NavBar = () => {
               </button>
             </div>
 
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 1, scale: 1 }}
               animate={{
                 opacity: NavWidth ? 0 : 1, // Langsam ausblenden
-                scale: NavWidth ? 0 : 1, // Verkleinern
               }}
               transition={{
                 duration: 0,
@@ -205,7 +208,15 @@ const NavBar = () => {
               className="text-xl font-extrabold hover:scale-105 duration-150"
             >
               <Link href="/">CliffEleven</Link>
-            </motion.h1>
+            </motion.h1> */}
+
+            <h1
+              className={`text-xl font-extrabold hover:scale-105 ${
+                NavWidth && "opacity-0"
+              }`}
+            >
+              CliffEleVen
+            </h1>
 
             <div
               className={`flex gap-8 ${
@@ -247,7 +258,11 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div className={` ${NavWidth ? "hidden" : "block animate-slideInLeft slideInLeft"}`}>
+            <div
+              className={` ${
+                NavWidth ? "hidden" : "block animate-appear appear"
+              }`}
+            >
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
