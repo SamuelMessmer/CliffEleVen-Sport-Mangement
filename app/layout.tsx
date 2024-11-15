@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "CliffEleVen-Sports",
+  title: "CliffEleVen",
   description: "Sport Management Agentur für Fussballer in ganz Europe",
 };
 

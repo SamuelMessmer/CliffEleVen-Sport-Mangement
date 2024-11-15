@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { useInView } from "framer-motion";
 
@@ -287,3 +288,9 @@ export default function Home() {
     </div>
   );
 }
+
+const metadata: Metadata = {
+  title: "Homepage",
+  description:
+    "Sport Management Agentur für Fussballer in ganz Europe - Infos über die Firma und den Inhaber Cliff Asare",
+};
