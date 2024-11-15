@@ -179,7 +179,7 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div className={`${NavWidth ? "block" : "hidden"}`}>
+            <div className={`${NavWidth ? "block animate-slideInLeft slideInLeft" : "hidden"}`}>
               <button
                 onClick={() => {
                   setShowContact(!showContact);
@@ -245,7 +245,7 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div className={` ${NavWidth ? "hidden" : "block"}`}>
+            <div className={` ${NavWidth ? "hidden" : "block animate-slideInLeft slideInLeft"}`}>
               <button
                 onClick={() => {
                   setShowContact(!showContact);
