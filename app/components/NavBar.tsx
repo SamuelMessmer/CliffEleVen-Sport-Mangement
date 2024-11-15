@@ -1,9 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { FaBars, FaWindowClose, FaHome, FaList } from "react-icons/fa";
-import { IoPersonCircle } from "react-icons/io5";
 import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
+
+import { IoPersonCircle } from "react-icons/io5";
+import { FaBars, FaWindowClose, FaHome, FaList } from "react-icons/fa";
+
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const [display, setDisplay] = useState(false);
@@ -12,19 +14,22 @@ const NavBar = () => {
 
   const [showContact, setShowContact] = useState(false);
 
-
   const showMenu = () => {
     setDisplay(!display);
     setShowContact(false);
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setNavWidth(window.scrollY > 100);
-    };
+    if (typeof window === "undefined") {
+      return;
+    } else {
+      const handleScroll = () => {
+        setNavWidth(window.scrollY > 100);
+      };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   useEffect(() => {
