@@ -18,7 +18,7 @@ const CustomCarousel = () => {
       >
         <SwiperSlide>
           <Image
-            src={"/images/foto2.png"}
+            src={"/foto2.png"}
             alt="Spieler Bild"
             width={1920}
             height={1080}
@@ -27,7 +27,7 @@ const CustomCarousel = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            src={"/images/terry.png"}
+            src={"/terry.png"}
             alt="Spieler Bild"
             width={1920}
             height={1080}
@@ -36,7 +36,7 @@ const CustomCarousel = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            src={"/images/sanden.png"}
+            src={"/sanden.png"}
             alt="Spieler Bild"
             width={1920}
             height={1080}
@@ -45,7 +45,7 @@ const CustomCarousel = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            src={"/images/osei.png"}
+            src={"/osei.png"}
             alt="Spieler Bild"
             width={1920}
             height={1080}

@@ -53,7 +53,7 @@ export default function Home() {
 
               <div className="flex justify-end mx-5">
                 <Image
-                  src={"/images/arrow.png"}
+                  src={"/arrow.png"}
                   alt="Pfeil bild"
                   height={150}
                   width={150}
@@ -77,7 +77,7 @@ export default function Home() {
             sm:block
             z-10
 						
-            bg-[url('/images/osei.png')]
+            bg-[url('/osei.png')]
             bg-cover
             bg-no-repeat
             bg-center
@@ -116,7 +116,7 @@ export default function Home() {
               <div className="sm:flex sm:items-center sm:justify-center sm:mx-20 sm:gap-14">
                 <div className="mt-10 mx-8">
                   <Image
-                    src={"/images/osei.png"}
+                    src={"/osei.png"}
                     alt="Spieler Bild"
                     height={1920}
                     width={1080}
@@ -190,7 +190,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center w-[550px]">
               <div className="sticky top-32 mb-[300px] self-start">
                 <Image
-                  src="/images/terry.png"
+                  src="/terry.png"
                   className="w-[250px] h-[350px]"
                   alt="Picture animation"
                   width={1920}
@@ -200,7 +200,7 @@ export default function Home() {
 
               <div className="sticky top-32 mb-[300px] self-end">
                 <Image
-                  src="/images/osei.png"
+                  src="/osei.png"
                   className="w-[250px] h-[250px]"
                   alt="Picture animation"
                   width={1920}
@@ -210,7 +210,7 @@ export default function Home() {
 
               <div className="sticky top-[60vh] mb-[300px] self-start">
                 <Image
-                  src="/images/foto2.png"
+                  src="/foto2.png"
                   className="w-[250px] h-[250px]"
                   alt="Picture animation"
                   width={1920}
@@ -220,7 +220,7 @@ export default function Home() {
 
               <div className="sticky top-[48vh] mb-[300px] self-end">
                 <Image
-                  src="/images/sanden.png"
+                  src="/sanden.png"
                   className="w-[250px] h-[350px]"
                   alt="Picture animation"
                   width={1920}
@@ -240,7 +240,7 @@ export default function Home() {
               {/* Picture for large devices */}
               <div className="hidden sm:block mt-10 mx-8">
                 <Image
-                  src={"/images/cliff.png"}
+                  src={"/cliff.png"}
                   alt="Spieler Bild"
                   height={1920}
                   width={1080}
@@ -264,7 +264,7 @@ export default function Home() {
                 {/* Picture for small devices */}
                 <div className="block sm:hidden mt-10 mx-8">
                   <Image
-                    src={"/images/cliff.png"}
+                    src={"/cliff.png"}
                     alt="Spieler Bild"
                     height={1920}
                     width={1080}

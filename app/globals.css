@@ -24,21 +24,6 @@ body {
   animation: slideInFromTop 0.3s ease-in-out;
 }
 
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-.slideIn {
-  animation: slideIn 0.5s ease-in-out;
-}
-
 @keyframes slideInLeft {
   0% {
     opacity: 0;
