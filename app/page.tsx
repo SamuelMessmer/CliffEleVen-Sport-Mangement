@@ -9,6 +9,7 @@ import { useInView } from "framer-motion";
 import FlyIn from "./components/FlyIn";
 import CustomCarousel from "./components/CustomCarousel";
 import FlyInSmall from "./components/FlyInSmall";
+import { useContactFormState } from "./state/ContactForm";
 
 export default function Home() {
   const textRef = useRef(null);
@@ -16,6 +17,8 @@ export default function Home() {
 
   const aboutRef = useRef(null);
   const aboutInView = useInView(aboutRef);
+
+  const { setShowContactForm } = useContactFormState();
 
   return (
     <div>
@@ -59,9 +62,11 @@ export default function Home() {
                   width={150}
                 />
                 <div className="self-end bg-[#3550FF] px-4 py-2 shadow-2xl inner-shadow  font-extrabold rounded-md  text-white">
-                  <Link href="/Kontakt">
-                    <button>KONTAKTIERE UNS</button>
-                  </Link>
+                  <button
+                  onClick={() => {
+                    setShowContactForm(true)
+                  }}
+                  >KONTAKTIERE UNS</button>
                 </div>
               </div>
             </div>

@@ -13,6 +13,7 @@ const CustomCarousel = () => {
         spaceBetween={10}
         slidesPerView={1}
         loop={true}
+        pagination={{ clickable: true }}
         onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
         className="h-[600px] w-[85%] rounded-md mb-4"
       >

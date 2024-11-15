@@ -6,17 +6,19 @@ import { IoPersonCircle } from "react-icons/io5";
 import { FaBars, FaWindowClose, FaHome, FaList } from "react-icons/fa";
 
 import { motion } from "framer-motion";
+import { useContactFormState } from "../state/ContactForm";
 
 const NavBar = () => {
   const [display, setDisplay] = useState(false);
   const [NavWidth, setNavWidth] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const [showContact, setShowContact] = useState(false);
+  // const [showContact, setShowContact] = useState(false);
+  const { showContactForm, setShowContactForm } = useContactFormState();
 
   const showMenu = () => {
     setDisplay(!display);
-    setShowContact(false);
+    setShowContactForm(false);
   };
 
   useEffect(() => {
@@ -119,7 +121,7 @@ const NavBar = () => {
             </button>
             <button
               onClick={() => {
-                setShowContact(!showContact);
+                setShowContactForm(!showContactForm);
                 setDisplay(false);
               }}
               className="border-2 border-blue-700 px-3 py-1 mt-2 shadow-lg font-extrabold rounded-md text-black"
@@ -182,7 +184,7 @@ const NavBar = () => {
             <div className={`${NavWidth ? "block animate-slideInLeft slideInLeft" : "hidden"}`}>
               <button
                 onClick={() => {
-                  setShowContact(!showContact);
+                  setShowContactForm(!showContactForm);
                   setDisplay(false);
                 }}
                 className="border-2 border-blue-700 px-3 py-1 font-bold rounded-md hover:scale-105 duration-150"
@@ -248,7 +250,7 @@ const NavBar = () => {
             <div className={` ${NavWidth ? "hidden" : "block animate-slideInLeft slideInLeft"}`}>
               <button
                 onClick={() => {
-                  setShowContact(!showContact);
+                  setShowContactForm(!showContactForm);
                   setDisplay(false);
                 }}
                 className="border-2 border-blue-700 px-3 py-1 font-bold rounded-md hover:scale-105 duration-150"
@@ -263,7 +265,7 @@ const NavBar = () => {
       {/* Contact Form */}
       <section>
         <div className="z-50 centerElement">
-          {showContact && (
+          {showContactForm && (
             <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
               <form>
                 <div className="flex flex-col justify-start px-8 py-4 text-white">
@@ -273,7 +275,7 @@ const NavBar = () => {
                     </h1>
                     <button
                       onClick={() => {
-                        setShowContact(false);
+                        setShowContactForm(false);
                       }}
                     >
                       <FaWindowClose className="h-8 w-8 text-[#3550FF]" />
