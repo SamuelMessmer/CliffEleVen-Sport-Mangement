@@ -12,6 +12,7 @@ const NavBar = () => {
 
   const [showContact, setShowContact] = useState(false);
 
+
   const showMenu = () => {
     setDisplay(!display);
     setShowContact(false);

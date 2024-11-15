@@ -2,7 +2,6 @@
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import { Navigation } from "swiper/modules";
 import { useState } from "react";
 
 const CustomCarousel = () => {
@@ -14,8 +13,6 @@ const CustomCarousel = () => {
         spaceBetween={10}
         slidesPerView={1}
         loop={true}
-        pagination={{ clickable: true }}
-        modules={[Navigation]}
         onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
         className="h-[600px] w-[85%] rounded-md mb-4"
       >

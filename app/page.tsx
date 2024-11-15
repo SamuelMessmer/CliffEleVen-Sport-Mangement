@@ -1,10 +1,12 @@
 "use client";
-import CustomCarousel from "./components/CustomCarousel";
-import Image from "next/image";
-import FlyIn from "./components/FlyIn";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
+
+import { useInView } from "framer-motion";
+
+import FlyIn from "./components/FlyIn";
+import CustomCarousel from "./components/CustomCarousel";
 import FlyInSmall from "./components/FlyInSmall";
 
 export default function Home() {
@@ -35,11 +37,11 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-5 mt-12 mx-6">
-              <div className="flex ">
+              <div className="flex">
                 <p className="wide-text">-</p>
                 <p className="wide-text">Für alle, die hoch hinaus wollen</p>
               </div>
-              <div className="flex ">
+              <div className="flex">
                 <p className="wide-text">-</p>
                 <p className="wide-text">
                   Wir begleiten Talente zum Erfolg und machen Ihre Träume wahr
@@ -135,6 +137,8 @@ export default function Home() {
                   </div>
                   <div className="flex text-[#3550FF]">
                     <p className="wide-text sm:wide-text-large">-</p>
+
+                    {/* Wir abhänig vo Bildschirmgroße gerendert */}
                     <div className="wide-text block sm:hidden sm:wide-text-large">
                       {textInView && (
                         <FlyInSmall text={"Coaching von unserem    Team"} />
@@ -228,6 +232,7 @@ export default function Home() {
       <section>
         <div className="mt-24 sm:-mt-[200px]">
           <div className="sm:flex sm:justify-center sm:items-center sm:mx-20">
+            {/* Picture for large devices */}
             <div className="hidden sm:block mt-10 mx-8">
               <Image
                 src={"/images/cliff.png"}
@@ -248,6 +253,7 @@ export default function Home() {
                 </h1>
               </div>
 
+              {/* Picture for small devices */}
               <div className="block sm:hidden mt-10 mx-8">
                 <Image
                   src={"/images/cliff.png"}
