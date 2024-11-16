@@ -23,7 +23,7 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ text }) => {
           transition={{
             delay: index * 0.1, // Verzögerung pro Buchstabe für den "Einflug"-Effekt
             duration: 0.9,
-            ease: "easeOut",
+            ease: "linear",
           }}
           className="inline-block sm:text-8xl" // Lässt jedes Zeichen als Block erscheinen
         >
