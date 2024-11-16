@@ -11,10 +11,50 @@ import { useContactFormState } from "../state/ContactForm";
 const NavBar = () => {
   const [display, setDisplay] = useState(false);
   const [NavWidth, setNavWidth] = useState(false);
+
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // const [showContact, setShowContact] = useState(false);
   const { showContactForm, setShowContactForm } = useContactFormState();
+
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephoneNumber, setTelephoneNumber] = useState("");
+  const [message, setMessage] = useState("");
+
+  //Für besser user experience
+  const [Loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const emailData = {
+      firstname,
+      lastname,
+      email,
+      telephoneNumber,
+      message,
+    };
+
+    const response = await fetch("/api/emails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(emailData),
+    });
+
+    if (!response.ok) {
+      console.log("Fehler beim senden der E-Mail");
+      setError(true);
+    }
+
+    console.log("E-Mail wurde gesendet!");
+    setLoading(false);
+    setSuccess(true);
+    location.reload();
+  };
 
   const showMenu = () => {
     setDisplay(!display);
@@ -41,7 +81,6 @@ const NavBar = () => {
         setDisplay(false);
       }
     };
-
     // Füge den Event-Listener hinzu
     document.addEventListener("mousedown", handler);
 
@@ -183,7 +222,7 @@ const NavBar = () => {
 
             <div
               className={`${
-                NavWidth ? "block animate-slideInLeft slideInLeft" : "hidden"
+                NavWidth ? "block animate-appear appear" : "hidden"
               }`}
             >
               <button
@@ -196,19 +235,6 @@ const NavBar = () => {
                 Kontakt
               </button>
             </div>
-
-            {/* <motion.h1
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{
-                opacity: NavWidth ? 0 : 1, // Langsam ausblenden
-              }}
-              transition={{
-                duration: 0,
-              }}
-              className="text-xl font-extrabold hover:scale-105 duration-150"
-            >
-              <Link href="/">CliffEleven</Link>
-            </motion.h1> */}
 
             <h1
               className={`text-xl font-extrabold hover:scale-105 ${
@@ -282,7 +308,7 @@ const NavBar = () => {
         <div className="z-50 centerElement">
           {showContactForm && (
             <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="flex flex-col justify-start px-8 py-4 text-white">
                   <div className="flex gap-10 justify-between items-center mb-7 sm:mb-14">
                     <h1 className="font-extrabold text-4xl sm:text-5xl">
@@ -303,16 +329,22 @@ const NavBar = () => {
                         <label className="font-semibold mb-2">Vorname:</label>
                         <input
                           type="text"
-                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
+                          placeholder="Dein Vorname"
+                          value={firstname}
+                          onChange={(e) => setFirstname(e.target.value)}
                           required
+                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
                         />
                       </div>
                       <div className="flex flex-col justify-start sm:text-white">
                         <label className="font-semibold mb-2">Nachname:</label>
                         <input
                           type="text"
-                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
+                          placeholder="Dein Nachname"
+                          value={lastname}
+                          onChange={(e) => setLastname(e.target.value)}
                           required
+                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
                         />
                       </div>
                     </div>
@@ -320,8 +352,11 @@ const NavBar = () => {
                     <label className="font-semibold mb-2">E-Mail:</label>
                     <input
                       type="email"
-                      className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
+                      placeholder="beispiel@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
+                      className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
                     />
                     <label className="font-semibold mb-2">
                       Telefon
@@ -331,21 +366,36 @@ const NavBar = () => {
                       :
                     </label>
                     <input
-                      type="number"
+                      type="tel"
+                      placeholder="+49 123 46789..."
+                      value={telephoneNumber}
+                      onChange={(e) => setTelephoneNumber(e.target.value)}
                       className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
                     />
                     <label className="hidden sm:block font-semibold mb-2">
                       Nachricht:
                     </label>
                     <textarea
-                      className="hidden sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
+                      placeholder="Ich suche einen Manager, weil ..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       required
+                      className="hidden sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
                     />
                     <input
                       type="submit"
                       value={"Senden (unverbindlich)"}
                       className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
                     />
+                  </div>
+                  <div className="self-center font-bold text-lg">
+                    {Loading && <p>wird gesendet ...</p>}
+                    {success && (
+                      <p style={{ color: "green" }}>Senden erfolgreich!</p>
+                    )}
+                    {error && (
+                      <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
+                    )}
                   </div>
                 </div>
               </form>
