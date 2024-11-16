@@ -1,7 +1,6 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { Metadata } from "next";
 
 import { useInView } from "framer-motion";
 
@@ -62,10 +61,12 @@ export default function Home() {
                 />
                 <div className="self-end bg-[#3550FF] px-4 py-2 shadow-2xl inner-shadow  font-extrabold rounded-md  text-white">
                   <button
-                  onClick={() => {
-                    setShowContactForm(true)
-                  }}
-                  >KONTAKTIERE UNS</button>
+                    onClick={() => {
+                      setShowContactForm(true);
+                    }}
+                  >
+                    KONTAKTIERE UNS
+                  </button>
                 </div>
               </div>
             </div>
@@ -301,9 +302,3 @@ export default function Home() {
     </div>
   );
 }
-
-const metadata: Metadata = {
-  title: "Homepage",
-  description:
-    "Sport Management Agentur für Fussballer in ganz Europe - Infos über die Firma und den Inhaber Cliff Asare",
-};
