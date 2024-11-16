@@ -48,12 +48,12 @@ const NavBar = () => {
     if (!response.ok) {
       console.log("Fehler beim senden der E-Mail");
       setError(true);
+    } else {
+      console.log("E-Mail wurde gesendet!");
+      setLoading(false);
+      setSuccess(true);
+      location.reload();
     }
-
-    console.log("E-Mail wurde gesendet!");
-    setLoading(false);
-    setSuccess(true);
-    location.reload();
   };
 
   const showMenu = () => {
@@ -305,7 +305,7 @@ const NavBar = () => {
 
       {/* Contact Form */}
       <section>
-        <div className="z-50 centerElement" >
+        <div className="z-50 centerElement">
           {showContactForm && (
             <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
               <form onSubmit={handleSubmit}>
@@ -376,17 +376,18 @@ const NavBar = () => {
                       Nachricht:
                     </label>
                     <textarea
-                      placeholder="Ich suche einen Manager, weil ..."
+                      placeholder="Ich möchte einen Manager, weil ..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       required
                       className="hidden h-sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
                     />
-                    <input
+                    <button
                       type="submit"
-                      value={"Senden (unverbindlich)"}
                       className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
-                    />
+                    >
+                      Senden(unverbindlich)
+                    </button>
                   </div>
                   <div className="self-center font-bold text-lg">
                     {Loading && <p>wird gesendet ...</p>}
@@ -394,7 +395,18 @@ const NavBar = () => {
                       <p style={{ color: "green" }}>Senden erfolgreich!</p>
                     )}
                     {error && (
-                      <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
+                      <div>
+                        <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
+                        <Link
+                          href={"/"}
+                          onClick={() => {
+                            setLoading(false);
+                            setError(false);
+                          }}
+                        >
+                          erneut versuchen
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>

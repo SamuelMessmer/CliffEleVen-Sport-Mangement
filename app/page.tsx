@@ -137,7 +137,7 @@ export default function Home() {
                     ref={textRef}
                     className="flex flex-col gap-4 ml-4 text-xl"
                   >
-                    <div className="flex text-[#3550FF]">
+                    <div className="flex items-center text-[#3550FF]">
                       <p className="wide-text sm:wide-text-large">-</p>
                       <div className="wide-text sm:wide-text-large">
                         {textInView && (
@@ -145,7 +145,7 @@ export default function Home() {
                         )}
                       </div>
                     </div>
-                    <div className="flex text-[#3550FF]">
+                    <div className="flex items-center text-[#3550FF]">
                       <p className="wide-text sm:wide-text-large">-</p>
 
                       {/* Wir abhänig vo Bildschirmgroße gerendert */}
