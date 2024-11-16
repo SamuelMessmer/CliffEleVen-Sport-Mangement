@@ -11,10 +11,7 @@ export async function POST(req: NextRequest) {
   const validation = schema.safeParse(body);
 
   if (!validation.success)
-    return NextResponse.json(
-      { message: "Daten konnten nicht validiert werden" },
-      { status: 400 }
-    );
+    return NextResponse.json({message: "Daten konnten nicht validiert werden"}, { status: 400 });
 
   const { data, error } = await resend.emails.send({
     from: "onboarding@resend.dev",
@@ -23,11 +20,18 @@ export async function POST(req: NextRequest) {
     react: Welcome(body.firstname),
   });
 
-  const response = await fetch("/api/emails/admin", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+  await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: ["samuel.messmer@web.de"],
+    subject: "Neue Kunden Anfrage auf deiner Website!",
+    react: Info(
+      body.firstname,
+      body.lastname,
+      body.email,
+      body.telephoneNumber,
+      body.message
+    ),
+  }); 
 
   if (error)
     return NextResponse.json(

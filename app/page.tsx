@@ -137,8 +137,8 @@ export default function Home() {
                     ref={textRef}
                     className="flex flex-col gap-4 ml-4 text-xl"
                   >
-                    <div className="flex items-center text-[#3550FF]">
-                      <p className="wide-text sm:wide-text-large">-</p>
+                    <div className="flex text-[#3550FF]">
+                      <p className="wide-text sm:wide-text-large justify-self-start">-</p>
                       <div className="wide-text sm:wide-text-large">
                         {textInView && (
                           <FlyInSmall text={"Meetings mit Spielern"} />
@@ -146,7 +146,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex items-center text-[#3550FF]">
-                      <p className="wide-text sm:wide-text-large">-</p>
+                      <p className="wide-text sm:wide-text-large justify-self-start">-</p>
 
                       {/* Wir abhänig vo Bildschirmgroße gerendert */}
                       <div className="wide-text block sm:hidden sm:wide-text-large">
