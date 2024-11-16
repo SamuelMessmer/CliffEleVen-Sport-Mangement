@@ -305,7 +305,7 @@ const NavBar = () => {
 
       {/* Contact Form */}
       <section>
-        <div className="z-50 centerElement">
+        <div className="z-50 centerElement" >
           {showContactForm && (
             <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
               <form onSubmit={handleSubmit}>
@@ -372,7 +372,7 @@ const NavBar = () => {
                       onChange={(e) => setTelephoneNumber(e.target.value)}
                       className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
                     />
-                    <label className="hidden sm:block font-semibold mb-2">
+                    <label className="hidden h-sm:block font-semibold mb-2">
                       Nachricht:
                     </label>
                     <textarea
@@ -380,7 +380,7 @@ const NavBar = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       required
-                      className="hidden sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
+                      className="hidden h-sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
                     />
                     <input
                       type="submit"
