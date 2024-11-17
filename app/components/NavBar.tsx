@@ -7,63 +7,18 @@ import { FaBars, FaWindowClose, FaHome, FaList } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 import { useContactFormState } from "../state/ContactForm";
+import Contactform from "./Contactform";
 
 const NavBar = () => {
-  const [display, setDisplay] = useState(false);
-  const [NavWidth, setNavWidth] = useState(false);
+  const [displayMobileMenu, setDisplayMobileMenu] = useState(false);
+  const [navbarToggle, setNavbarToggle] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const { showContactForm, setShowContactForm } = useContactFormState();
 
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [telephoneNumber, setTelephoneNumber] = useState("");
-  const [message, setMessage] = useState("");
-
-  //Für besser user experience
-  const [Loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const emailData = {
-      firstname,
-      lastname,
-      email,
-      telephoneNumber,
-      message,
-    };
-
-    const response = await fetch("/api/emails", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(emailData),
-    });
-
-    const responseToAdmin = await fetch("/api/emails/toadmin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(emailData),
-    });
-
-    if (!response.ok && !responseToAdmin.ok) {
-      console.log("Fehler beim senden der E-Mail");
-      setError(true);
-    } else {
-      console.log("E-Mail wurde gesendet!");
-      setLoading(false);
-      setSuccess(true);
-      location.reload();
-    }
-  };
-
   const showMenu = () => {
-    setDisplay(!display);
+    setDisplayMobileMenu(!displayMobileMenu);
     setShowContactForm(false);
   };
 
@@ -72,7 +27,7 @@ const NavBar = () => {
       return;
     } else {
       const handleScroll = () => {
-        setNavWidth(window.scrollY > 100);
+        setNavbarToggle(window.scrollY > 100);
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -84,7 +39,7 @@ const NavBar = () => {
     const handler = (event: MouseEvent) => {
       // Überprüfe, ob der Klick außerhalb des Menü-Elements passiert ist
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setDisplay(false);
+        setDisplayMobileMenu(false);
       }
     };
     // Füge den Event-Listener hinzu
@@ -111,7 +66,7 @@ const NavBar = () => {
               showMenu();
             }}
           >
-            {display ? (
+            {displayMobileMenu ? (
               <FaWindowClose className="h-8 w-8" />
             ) : (
               <FaBars className="h-8 w-8" />
@@ -121,7 +76,7 @@ const NavBar = () => {
 
         <div
           className={
-            display
+            displayMobileMenu
               ? "bg-white absolute right-5 mt-5 p-8 rounded-xl animate-slideInFromTop slideInFromTop"
               : "hidden"
           }
@@ -167,7 +122,7 @@ const NavBar = () => {
             <button
               onClick={() => {
                 setShowContactForm(!showContactForm);
-                setDisplay(false);
+                setDisplayMobileMenu(false);
               }}
               className="border-2 border-blue-700 px-3 py-1 mt-2 shadow-lg font-extrabold rounded-md text-black"
             >
@@ -182,7 +137,7 @@ const NavBar = () => {
         <div className="flex justify-center">
           <motion.div
             animate={{
-              width: NavWidth ? "65%" : "100%", // Breite der Navbar
+              width: navbarToggle ? "65%" : "100%", // Breite der Navbar
             }}
             transition={{
               duration: 0.5,
@@ -190,7 +145,7 @@ const NavBar = () => {
             }}
             className="flex justify-between items-center gap-56 backdrop-blur-xl bg-gray-700 bg-opacity-35 shadow-2xl py-3 px-8 rounded-full"
           >
-            <div className={`flex gap-8 ${NavWidth ? "block" : "hidden"}`}>
+            <div className={`flex gap-8 ${navbarToggle ? "block" : "hidden"}`}>
               <button
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
                 onClick={() => {
@@ -228,13 +183,13 @@ const NavBar = () => {
 
             <div
               className={`${
-                NavWidth ? "block animate-appear appear" : "hidden"
+                navbarToggle ? "block animate-appear appear" : "hidden"
               }`}
             >
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
-                  setDisplay(false);
+                  setDisplayMobileMenu(false);
                 }}
                 className="border-2 border-blue-700 px-3 py-1 font-bold rounded-md hover:scale-105 duration-150"
               >
@@ -242,17 +197,19 @@ const NavBar = () => {
               </button>
             </div>
 
-            <h1
-              className={`text-xl font-extrabold hover:scale-105 ${
-                NavWidth && "opacity-0"
-              }`}
-            >
-              CliffEleVen
-            </h1>
+            <Link href="/ ">
+              <h1
+                className={`text-xl font-extrabold hover:scale-105 ${
+                  navbarToggle && "opacity-0"
+                }`}
+              >
+                CliffEleVen
+              </h1>
+            </Link>
 
             <div
               className={`flex gap-8 ${
-                NavWidth ? "hidden" : "block duration-500"
+                navbarToggle ? "hidden" : "block duration-500"
               }`}
             >
               <button
@@ -292,13 +249,13 @@ const NavBar = () => {
 
             <div
               className={` ${
-                NavWidth ? "hidden" : "block animate-appear appear"
+                navbarToggle ? "hidden" : "block animate-appear appear"
               }`}
             >
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
-                  setDisplay(false);
+                  setDisplayMobileMenu(false);
                 }}
                 className="border-2 border-blue-700 px-3 py-1 font-bold rounded-md hover:scale-105 duration-150"
               >
@@ -312,113 +269,7 @@ const NavBar = () => {
       {/* Contact Form */}
       <section>
         <div className="z-50 centerElement">
-          {showContactForm && (
-            <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
-              <form onSubmit={handleSubmit} method="POST" action={""}>
-                <div className="flex flex-col justify-start px-8 py-4 text-white">
-                  <div className="flex gap-10 justify-between items-center mb-7 sm:mb-14">
-                    <h1 className="font-extrabold text-4xl sm:text-5xl">
-                      Schreiben Sie uns:
-                    </h1>
-                    <button
-                      onClick={() => {
-                        setShowContactForm(false);
-                      }}
-                    >
-                      <FaWindowClose className="h-8 w-8 text-[#3550FF]" />
-                    </button>
-                  </div>
-
-                  <div className="flex flex-col justify-start sm:py-8 sm:px-20 sm:text-white">
-                    <div className="flex flex-col justify-start sm:flex-row sm:justify-between sm:text-white">
-                      <div className="flex flex-col justify-start sm:text-white">
-                        <label className="font-semibold mb-2">Vorname:</label>
-                        <input
-                          type="text"
-                          placeholder="Dein Vorname"
-                          value={firstname}
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
-                        />
-                      </div>
-                      <div className="flex flex-col justify-start sm:text-white">
-                        <label className="font-semibold mb-2">Nachname:</label>
-                        <input
-                          type="text"
-                          placeholder="Dein Nachname"
-                          value={lastname}
-                          onChange={(e) => setLastname(e.target.value)}
-                          required
-                          className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
-                        />
-                      </div>
-                    </div>
-
-                    <label className="font-semibold mb-2">E-Mail:</label>
-                    <input
-                      type="email"
-                      placeholder="beispiel@email.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
-                    />
-                    <label className="font-semibold mb-2">
-                      Telefon
-                      <span className="font-normal text-[#3550FF]">
-                        (optional)
-                      </span>
-                      :
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="+49 123 46789..."
-                      value={telephoneNumber}
-                      onChange={(e) => setTelephoneNumber(e.target.value)}
-                      className="text-black border-[#3550FF] border-2 rounded-full px-4 py-1 mb-6"
-                    />
-                    <label className="hidden h-sm:block font-semibold mb-2">
-                      Nachricht:
-                    </label>
-                    <textarea
-                      placeholder="Ich möchte einen Manager, weil ..."
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                      className="hidden h-sm:block text-black border-[#3550FF] border-2 rounded-xl px-4 py-1 mb-6 h-[110px]"
-                    />
-                    <button
-                      type="submit"
-                      className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
-                    >
-                      Senden(unverbindlich)
-                    </button>
-                  </div>
-                  <div className="self-center font-bold text-lg">
-                    {Loading && <p>wird gesendet ...</p>}
-                    {success && (
-                      <p style={{ color: "green" }}>Senden erfolgreich!</p>
-                    )}
-                    {error && (
-                      <div>
-                        <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
-                        <Link
-                          href={"/"}
-                          onClick={() => {
-                            setLoading(false);
-                            setError(false);
-                          }}
-                        >
-                          erneut versuchen
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </form>
-            </div>
-          )}
+          <Contactform />
         </div>
       </section>
     </div>
