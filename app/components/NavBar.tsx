@@ -45,7 +45,13 @@ const NavBar = () => {
       body: JSON.stringify(emailData),
     });
 
-    if (!response.ok) {
+    const responseToAdmin = await fetch("/api/emails/toadmin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(emailData),
+    });
+
+    if (!response.ok && !responseToAdmin.ok) {
       console.log("Fehler beim senden der E-Mail");
       setError(true);
     } else {
@@ -308,7 +314,7 @@ const NavBar = () => {
         <div className="z-50 centerElement">
           {showContactForm && (
             <div className="bg-[#1E2228] shadow-xl rounded-xl animate-slideInLeft slideInLeft w-80 sm:w-[700px]">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} method="POST" action={""}>
                 <div className="flex flex-col justify-start px-8 py-4 text-white">
                   <div className="flex gap-10 justify-between items-center mb-7 sm:mb-14">
                     <h1 className="font-extrabold text-4xl sm:text-5xl">
