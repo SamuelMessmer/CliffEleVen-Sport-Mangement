@@ -130,31 +130,30 @@ const Contactform = () => {
                   type="submit"
                   className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
                 >
-                  Senden(unverbindlich)
+                  {!(Loading && error && success) && <p>Senden(unverbindlich)</p>}
+                  {Loading && <p>wird gesendet ...</p>}
+
+                  {success && (
+                    <p style={{ color: "green" }}>Senden erfolgreich!</p>
+                  )}
+                  {error && (
+                    <div>
+                      <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
+                      <Link
+                        href={"/"}
+                        onClick={() => {
+                          setLoading(false);
+                          setError(false);
+                        }}
+                      >
+                        erneut versuchen
+                      </Link>
+                    </div>
+                  )}
                 </button>
                 <span className="text-gray-200 font-light mt-3 text-center text-xs sm:-mb-2 md:-mb-6 -mx-4" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
                   um mit Ihnen in Kontakt zu treten. Eine Weitergabe an Dritte oder Nutzung für andere
                   Zwecke erfolgt nicht.</span>
-              </div>
-              <div className="self-center font-bold text-lg">
-                {Loading && <p>wird gesendet ...</p>}
-                {success && (
-                  <p style={{ color: "green" }}>Senden erfolgreich!</p>
-                )}
-                {error && (
-                  <div>
-                    <p style={{ color: "red" }}>Senden Fehlgeschlagen :(</p>
-                    <Link
-                      href={"/"}
-                      onClick={() => {
-                        setLoading(false);
-                        setError(false);
-                      }}
-                    >
-                      erneut versuchen
-                    </Link>
-                  </div>
-                )}
               </div>
             </div>
           </form>
