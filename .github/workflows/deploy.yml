@@ -26,13 +26,13 @@ jobs:
       - name: Deploy to VPS
         run: |
           ssh webadmin@193.22.146.48 <<EOF
-          "zsh -l -c 'cd ../../../var/www/nextjs/CliffEleVen-Sport-Mangement 
+          cd ../../../var/www/nextjs/CliffEleVen-Sport-Mangement 
           && git pull origin main 
           && npm install && sleep 5 
           && npm run build 
           && sleep 5 
           && pm2 stop 0 
           && pm2 start npm --name \"cliffeleven\" -- start 
-          && pm2 save'"
+          && pm2 save
 
           EOF
