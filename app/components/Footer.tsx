@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="h-20 bg-white"></div>
 
       <div className="flex flex-col md:flex-row md:items-center justify-between text-black bg-white px-4 pb-2 -mt-3 sm:p-8 2xl:p-14 xl:px-20">
-        <p>@Allrightsreserved</p>
+        <p>@Alle Rechte vorbehalten</p>
         <div className="flex gap-10 md:gap-5 self-center md:self-auto py-5 md:p-0 opacity-55 sm:opacity-95">
           <Link href="/impressum">
             <p>Impressum</p>
