@@ -3,36 +3,30 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main # Nur für Pushes in den "main"-Branch ausführen
+      - main # Ausführen bei Pushes in den "main"-Branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # Repository auschecken
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      # SSH-Key in den Agent laden
       - name: Install SSH Key
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      # Server zur Liste der bekannten Hosts hinzufügen
       - name: Add server to known hosts
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H 193.22.146.48 >> ~/.ssh/known_hosts
 
+      # Deployment-Befehl ausführen
       - name: Deploy to VPS
         run: |
-          ssh webadmin@193.22.146.48 <<EOF
-          cd ../../../var/www/nextjs/CliffEleVen-Sport-Mangement 
-          && git pull origin main 
-          && npm install && sleep 5 
-          && npm run build 
-          && sleep 5 
-          && pm2 stop 0 
-          && pm2 start npm --name \"cliffeleven\" -- start 
-          && pm2 save
-
-          EOF
+          ssh webadmin@193.22.146.48 "bash -l -c 'source ~/.nvm/nvm.sh && nvm use 22.11.0 && cd /var/www/nextjs/CliffEleVen-Sport-Mangement && git pull origin main && npm install && npm run build && pm2 stop 0 && pm2 start npm --name \"cliffeleven\" -- start && pm2 save'"
