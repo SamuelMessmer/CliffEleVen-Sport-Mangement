@@ -130,7 +130,7 @@ const Contactform = () => {
                   type="submit"
                   className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
                 >
-                  {!(Loading || error || success) && <p>Senden(unverbindlich)</p>}
+                  {(!Loading || !error || !success) && <p>Senden(unverbindlich)</p>}
                   {Loading && <p>wird gesendet ...</p>}
 
                   {success && (
