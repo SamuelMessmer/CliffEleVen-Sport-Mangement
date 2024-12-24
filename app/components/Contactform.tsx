@@ -130,7 +130,6 @@ const Contactform = () => {
                   type="submit"
                   className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
                 >
-                  {(!Loading || !error || !success) && <p>Senden(unverbindlich)</p>}
                   {Loading && <p>wird gesendet ...</p>}
 
                   {success && (
@@ -150,6 +149,8 @@ const Contactform = () => {
                       </Link>
                     </div>
                   )}
+                  
+                  {(!Loading || !error || !success) && <p>Senden(unverbindlich)</p>}
                 </button>
                 <span className="text-gray-200 font-light mt-3 text-center text-xs sm:-mb-2 md:-mb-6 -mx-4" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
                   um mit Ihnen in Kontakt zu treten. Eine Weitergabe an Dritte oder Nutzung für andere
