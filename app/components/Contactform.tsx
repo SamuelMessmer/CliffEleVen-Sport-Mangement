@@ -131,10 +131,10 @@ const Contactform = () => {
                   className="text-white border-[#3550FF] border-2 rounded-xl px-4 py-1 font-extrabold"
                 >
                   Senden(unverbindlich)
-                  <span className="text-white font-xs" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
-                    um mit Ihnen in Kontakt zu treten. Eine Weitergabe an Dritte oder Nutzung für andere
-                    Zwecke erfolgt nicht.</span>
                 </button>
+                <span className="text-gray-200 font-light mt-3 text-center text-xs -mb-6" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
+                  um mit Ihnen in Kontakt zu treten. Eine Weitergabe an Dritte oder Nutzung für andere
+                  Zwecke erfolgt nicht.</span>
               </div>
               <div className="self-center font-bold text-lg">
                 {Loading && <p>wird gesendet ...</p>}
