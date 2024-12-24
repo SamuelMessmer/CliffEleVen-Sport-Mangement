@@ -23,8 +23,14 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H 193.22.146.48 >> ~/.ssh/known_hosts
 
-      - name: Deploy to server
+      - name: Deploy to VPS
         run: |
-          ssh -t webadmin@193.22.146.48 "bash -l -c 'source ~/.nvm/nvm.sh && nvm use 22.11.0 && cd ../../../var/www/nextjs/CliffEleVen-Sport-Mangement && git pull origin main && npm install && npm run build && pm2 stop 0 && pm2 start npm --name \"cliffeleven\" -- start && pm2 save'"
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh-XXXXXX8liWr6/agent.1828 # Sicherstellen, dass die SSH-Umgebung korrekt gesetzt ist
+          ssh webadmin@193.22.146.48 <<EOF
+          cd ../../var/www/nextjs/CliffEleVen-Sport-Mangement
+          git pull origin main
+          npm install
+          npm run build
+          pm2 stop 0
+          pm2 start npm --name "cliffeleven" -- start
+          pm2 save 
+          EOF
