@@ -132,7 +132,7 @@ const Contactform = () => {
                 >
                   Senden(unverbindlich)
                 </button>
-                <span className="text-gray-200 font-light mt-3 text-center text-xs -mb-6" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
+                <span className="text-gray-200 font-light mt-3 text-center text-xs -mb-6 -mx-4" >Die von Ihnen im Formular angegebenen Daten werden ausschließlich dazu verwendet,
                   um mit Ihnen in Kontakt zu treten. Eine Weitergabe an Dritte oder Nutzung für andere
                   Zwecke erfolgt nicht.</span>
               </div>
