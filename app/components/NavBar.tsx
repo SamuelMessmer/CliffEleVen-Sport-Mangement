@@ -92,7 +92,9 @@ const NavBar = () => {
               }}
             >
               <FaHome className="h-6 w-6 tex-black" />
-              STARTSEITE
+              <Link href={"/"}>
+                STARTSEITE
+              </Link>
             </button>
 
             <button
@@ -155,7 +157,9 @@ const NavBar = () => {
                   });
                 }}
               >
-                STARTSEITE
+                <Link href={"/"}>
+                  STARTSEITE
+                </Link>
               </button>
               <button
                 onClick={() => {
@@ -182,9 +186,8 @@ const NavBar = () => {
             </div>
 
             <div
-              className={`${
-                navbarToggle ? "block animate-appear appear" : "hidden"
-              }`}
+              className={`${navbarToggle ? "block animate-appear appear" : "hidden"
+                }`}
             >
               <button
                 onClick={() => {
@@ -199,29 +202,29 @@ const NavBar = () => {
 
             <Link href="/ ">
               <h1
-                className={`text-xl font-extrabold hover:scale-105 ${
-                  navbarToggle && "opacity-0"
-                }`}
+                className={`text-xl font-extrabold hover:scale-105 ${navbarToggle && "opacity-0"
+                  }`}
               >
                 CliffEleVen
               </h1>
             </Link>
 
             <div
-              className={`flex gap-8 ${
-                navbarToggle ? "hidden" : "block duration-500"
-              }`}
+              className={`flex gap-8 ${navbarToggle ? "hidden" : "block duration-500"
+                }`}
             >
               <button
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
                 onClick={() => {
                   window.scrollTo({
-                    top: 1000,
+                    top: 0,
                     behavior: "smooth",
                   });
                 }}
               >
-                STARTSEITE
+                <Link href={"/"}>
+                  STARTSEITE
+                </Link>
               </button>
               <button
                 onClick={() => {
@@ -248,9 +251,8 @@ const NavBar = () => {
             </div>
 
             <div
-              className={` ${
-                navbarToggle ? "hidden" : "block animate-appear appear"
-              }`}
+              className={` ${navbarToggle ? "hidden" : "block animate-appear appear"
+                }`}
             >
               <button
                 onClick={() => {
