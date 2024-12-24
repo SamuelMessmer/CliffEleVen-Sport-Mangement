@@ -96,7 +96,9 @@ export default function Home() {
             before:to-transparent
             before:opacity-100
             before:z-[-5]"
-            ></div>
+            >
+              
+            </div>
           </div>
         </section>
 
