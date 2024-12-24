@@ -1,0 +1,31 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Nur für Pushes in den "main"-Branch ausführen
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install SSH Key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to VPS
+      run: |
+        ssh webadmin@193.22.146.48 <<EOF
+        cd ../../../var/www/nextjs/CliffEleVen-Sport-Mangement
+        git pull origin main
+        npm install
+        npm run build
+        pm2 stop 0
+        pm2 start npm --name "cliffeleven" -- start
+        pm2 save 
+        EOF
