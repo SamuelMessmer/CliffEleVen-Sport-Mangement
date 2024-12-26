@@ -235,7 +235,7 @@ const NavBar = () => {
                 }}
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
               >
-                KADER
+                SPIELER
               </button>
               <button
                 onClick={() => {
