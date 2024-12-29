@@ -6,7 +6,6 @@ import { useInView } from "framer-motion";
 
 import FlyIn from "./components/FlyIn";
 import CustomCarousel from "./components/CustomCarousel";
-import FlyInSmall from "./components/FlyInSmall";
 import { useContactFormState } from "./state/ContactForm";
 
 export default function Home() {
@@ -143,7 +142,7 @@ export default function Home() {
                       <p className="wide-text sm:wide-text-large justify-self-start">-</p>
                       <div className="wide-text sm:wide-text-large">
                         {textInView && (
-                          <FlyInSmall text={"Meetings mit Spielern"} />
+                          <FlyIn textSize="sm:text-sm" text={"Meetings mit Spielern"} />
                         )}
                       </div>
                     </div>
@@ -153,19 +152,19 @@ export default function Home() {
                       {/* Wir abhänig vo Bildschirmgroße gerendert */}
                       <div className="wide-text block sm:hidden sm:wide-text-large">
                         {textInView && (
-                          <FlyInSmall text={"Coaching von unserem    Team"} />
+                          <FlyIn textSize="sm:text-sm" text={"Coaching von unserem    Team"} />
                         )}
                       </div>
                       <div className="wide-text hidden sm:block sm:wide-text-large">
                         {textInView && (
-                          <FlyInSmall text={"Coaching von unserem Team"} />
+                          <FlyIn textSize="sm:text-sm" text={"Coaching von unserem Team"} />
                         )}
                       </div>
                     </div>
                     <div className="flex items-center text-[#3550FF]">
                       <p className="wide-text sm:wide-text-large">-</p>
                       <div className="wide-text sm:wide-text-large">
-                        {textInView && <FlyInSmall text={"Tipps von Profis"} />}
+                        {textInView && <FlyIn textSize="sm:text-sm" text={"Tipps von Profis"} />}
                       </div>
                     </div>
                   </div>
