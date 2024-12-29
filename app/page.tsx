@@ -260,10 +260,10 @@ export default function Home() {
                   className="flex flex-col max-w-[400px] mx-10"
                 >
                   <h1 className="tracking-tightest">
-                    {aboutInView && <FlyIn text={"ABOUT"} />}
+                    {aboutInView && <FlyIn textSize="md:text-8xl" text={"ABOUT"} />}
                   </h1>
                   <h1 className="text-6xl font-extrabold text-[#3550FF] self-end -mt-12">
-                    {aboutInView && <FlyIn text={"ME"} />}
+                    {aboutInView && <FlyIn textSize="md:text-8xl" text={"ME"} />}
                   </h1>
                 </div>
 
