@@ -26,15 +26,15 @@ export default function Home() {
             <div className="mt-28 mr-10 sm:mx-0 xl:mx-10">
               <div className="flex flex-col mx-2 sm:mx-0 xl:mx-10">
                 <div className="tracking-tightest -mb-8">
-                  <FlyIn text={"CATCH"} />
+                  <FlyIn textSize="md:text-8xl" text={"CATCH"} />
                 </div>
                 <div className="tracking-tightest text-[#3550FF] self-end sm:self-center -mb-8">
                   {" "}
-                  <FlyIn text={"YOUR"} />
+                  <FlyIn textSize="md:text-8xl" text={"YOUR"} />
                 </div>
                 <div className="tracking-tightest self-center sm:self-end">
                   {" "}
-                  <FlyIn text={"DREAMS"} />
+                  <FlyIn textSize="md:text-8xl" text={"DREAMS"} />
                 </div>
               </div>
 
