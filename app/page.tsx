@@ -257,7 +257,7 @@ export default function Home() {
               <div className="sm:w-3/4 sm:mx-14">
                 <div
                   ref={aboutRef}
-                  className="flex flex-col max-w-[400px] mx-10 min-h-24"
+                  className="flex flex-col max-w-[400px] mx-10 min-h-32"
                 >
                   <h1 className="tracking-tightest">
                     {aboutInView && <FlyIn textSize="md:text-8xl" text={"ABOUT"} />}
