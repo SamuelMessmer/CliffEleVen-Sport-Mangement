@@ -29,11 +29,11 @@ export default function Home() {
                   <FlyIn textSize="md:text-8xl" text={"CATCH"} />
                 </div>
                 <div className="tracking-tightest text-[#3550FF] self-end sm:self-center -mb-8">
-                  {" "}
+                  {""}
                   <FlyIn textSize="md:text-8xl" text={"YOUR"} />
                 </div>
                 <div className="tracking-tightest self-center sm:self-end">
-                  {" "}
+                  {""}
                   <FlyIn textSize="md:text-8xl" text={"DREAMS"} />
                 </div>
               </div>

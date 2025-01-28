@@ -30,4 +30,4 @@ jobs:
       # Muss ein Befehl sein weil die befehle sonst zu schnell für den Server ausgeführt werden
       - name: Deploy to VPS
         run: |
-          ssh webadmin@193.22.146.48 "zsh -l -c 'source ~/.nvm/nvm.sh && nvm use 22.11.0 && cd .. && cd .. && cd .. && cd /var/www/nextjs/CliffEleVen-Sport-Mangement && git pull origin main && npm install && npm run build && pm2 stop cliffeleven && pm2 delete cliffeleven && pm2 start npm --name \"cliffeleven\" -- start && pm2 save'"
+          ssh webadmin@193.22.146.48 "zsh -l -c 'source ~/.nvm/nvm.sh && nvm use 22.11.0 && cd .. && cd .. && cd .. && cd /var/www/nextjs/CliffEleVen-Sport-Mangement && git pull origin main && npm install && npm run build && pm2 stop cliffeleven && pm2 delete cliffeleven && pm2 start npm --name cliffeleven -- start && pm2 save'"
