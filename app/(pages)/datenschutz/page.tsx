@@ -3,7 +3,7 @@ import React from "react";
 const Datenschutz = () => {
   return (
     <div className="flex flex-col gap-10 justify-center items-center mx-2 sm:mx-56 mt-12">
-      <h1 className="font-extrabold text-7xl">Datenschutzerkl&auml;rung</h1>
+      <h1 className="font-extrabold text-7xl mx-14">Datenschutzerkl&auml;rung</h1>
       <p>
         1. Allgemeine Hinweise Der Schutz Ihrer pers&ouml;nlichen Daten ist uns
         ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten
