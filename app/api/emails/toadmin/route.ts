@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import Info from "@/emails/Info";
+import { Resend } from "resend";
+import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,9 +22,9 @@ export async function POST(req: NextRequest) {
 
   if (error)
     return NextResponse.json(
-      { "Serverseitiger Fehler der API": error },
+      { "Internal server error: ": error },
       { status: 500 }
     );
 
-  return NextResponse.json({ "Gesendete Daten:": data }, { status: 200 });
+  return NextResponse.json({ "Success, data: ": data }, { status: 200 });
 }
