@@ -82,15 +82,7 @@ const NavBar = () => {
           }
         >
           <div className="flex flex-col gap-1">
-            <button
-              className="text-black text-sm flex gap-5 items-center py-2"
-              onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }}
-            >
+            <button className="text-black text-sm flex gap-5 items-center py-2">
               <FaHome className="h-6 w-6 tex-black" />
               <Link href={"/"}>
                 STARTSEITE
@@ -99,22 +91,24 @@ const NavBar = () => {
 
             <button
               onClick={() => {
-                window.scrollTo({
-                  top: 1650,
-                  behavior: "smooth",
-                });
+                const element: HTMLElement | null = document.getElementById("player-section-mobile");
+                element?.scrollIntoView({
+                  block: "center",
+                  behavior: "smooth"
+                })
               }}
               className="text-black text-sm flex gap-5 items-center py-2"
             >
               <FaList className="h-6 w-6 text-black" />
-              SPIELER
+              KADER
             </button>
             <button
               onClick={() => {
-                window.scrollTo({
-                  top: 2390,
-                  behavior: "smooth",
-                });
+                const element: HTMLElement | null = document.getElementById("about-section");
+                element?.scrollIntoView({
+                  block: "start",
+                  behavior: "smooth"
+                })
               }}
               className="text-black text-sm flex gap-5 items-center py-2"
             >
@@ -148,25 +142,17 @@ const NavBar = () => {
             className="flex justify-between items-center gap-56 backdrop-blur-xl bg-gray-700 bg-opacity-35 shadow-2xl py-3 px-8 rounded-full"
           >
             <div className={`flex gap-8 ${navbarToggle ? "block" : "hidden"}`}>
-              <button
-                className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
-                onClick={() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                }}
-              >
+              <button className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm">
                 <Link href={"/"}>
                   STARTSEITE
                 </Link>
               </button>
               <button
                 onClick={() => {
-                  window.scrollTo({
-                    top: 7000,
-                    behavior: "smooth",
-                  });
+                  const element: HTMLElement | null = document.getElementById("player-section");
+                  element?.scrollIntoView({
+                    behavior: "smooth"
+                  })
                 }}
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
               >
@@ -174,10 +160,11 @@ const NavBar = () => {
               </button>
               <button
                 onClick={() => {
-                  window.scrollTo({
-                    top: 6000,
-                    behavior: "smooth",
-                  });
+                  const element: HTMLElement | null = document.getElementById("about-section");
+                  element?.scrollIntoView({
+                    block: "center",
+                    behavior: "smooth"
+                  })
                 }}
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
               >
@@ -185,10 +172,7 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div
-              className={`${navbarToggle ? "block animate-appear appear" : "hidden"
-                }`}
-            >
+            <div className={`${navbarToggle ? "block animate-appear appear" : "hidden"}`}>
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
@@ -201,48 +185,36 @@ const NavBar = () => {
             </div>
 
             <Link href="/ ">
-              <h1
-                className={`text-xl font-extrabold hover:scale-105 ${navbarToggle && "opacity-0"
-                  }`}
-              >
+              <h1 className={`text-xl font-extrabold hover:scale-105 ${navbarToggle && "opacity-0"}`}>
                 CliffEleVen
               </h1>
             </Link>
 
-            <div
-              className={`flex gap-8 ${navbarToggle ? "hidden" : "block duration-500"
-                }`}
-            >
-              <button
-                className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
-                onClick={() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                }}
-              >
+            <div className={`flex gap-8 ${navbarToggle ? "hidden" : "block duration-500"}`}>
+              <button className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm">
                 <Link href={"/"}>
                   STARTSEITE
                 </Link>
               </button>
               <button
                 onClick={() => {
-                  window.scrollTo({
-                    top: 1000,
+                  const element: HTMLElement | null = document.getElementById("player-section");
+                  element?.scrollIntoView({
                     behavior: "smooth",
-                  });
+                    block: "center"
+                  })
                 }}
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
               >
-                SPIELER
+                KADER
               </button>
               <button
                 onClick={() => {
-                  window.scrollTo({
-                    top: 1000,
+                  const element: HTMLElement | null = document.getElementById("about-section");
+                  element?.scrollIntoView({
                     behavior: "smooth",
-                  });
+                    block: "center"
+                  })
                 }}
                 className="hover:scale-105 duration-150 hover:border-b-2 border-blue-700 text-sm"
               >
@@ -250,10 +222,7 @@ const NavBar = () => {
               </button>
             </div>
 
-            <div
-              className={` ${navbarToggle ? "hidden" : "block animate-appear appear"
-                }`}
-            >
+            <div className={` ${navbarToggle ? "hidden" : "block animate-appear appear"}`}>
               <button
                 onClick={() => {
                   setShowContactForm(!showContactForm);
@@ -266,15 +235,15 @@ const NavBar = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div >
 
       {/* Contact Form */}
-      <section>
+      < section >
         <div className="z-50 centerElement">
           <Contactform />
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
 

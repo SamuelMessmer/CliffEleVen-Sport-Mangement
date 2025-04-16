@@ -185,13 +185,13 @@ export default function Home() {
 
         {/* Bilder Carousel */}
         <section>
-          <div className="block sm:hidden mt-24 sm:mt-40 z-10">
+          <div id="player-section-mobile" className="block sm:hidden mt-24 sm:mt-40 z-10">
             <CustomCarousel />
           </div>
         </section>
 
         {/* Bilder Desktop */}
-        <section className="hidden sm:block overflow-visible">
+        <section id="player-section" className="hidden sm:block overflow-visible">
           <div className="flex items-center justify-center">
             <div className="flex flex-col justify-center items-center w-[550px]">
               <div className="sticky top-32 mb-[300px] self-start">
@@ -241,7 +241,7 @@ export default function Home() {
 
         {/* About Me */}
         <section>
-          <div className="mt-24 sm:-mt-[200px]">
+          <div id="about-section" className="mt-24 sm:-mt-[200px]">
             <div className="sm:flex sm:justify-center sm:items-center sm:mx-20">
               {/* Picture for large devices */}
               <div className="hidden sm:block mt-10 mx-8">
