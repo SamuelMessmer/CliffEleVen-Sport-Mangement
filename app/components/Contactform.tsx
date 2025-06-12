@@ -12,7 +12,7 @@ const Contactform = () => {
   const [telephoneNumber, setTelephoneNumber] = useState("");
   const [message, setMessage] = useState("");
 
-  //Für besser user experience
+  //Für bessere user experience
   const [Loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -35,13 +35,13 @@ const Contactform = () => {
       body: JSON.stringify(emailData),
     });
 
-    const responseToAdmin = await fetch("/api/emails/toadmin", {
+    const responseAdmin = await fetch("/api/emails/toadmin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(emailData),
     });
 
-    if (!response.ok && !responseToAdmin.ok) {
+    if (!response.ok && !responseAdmin.ok) {
       console.log("Fehler beim senden der E-Mail");
       setError(true);
     } else {

@@ -77,10 +77,10 @@ export default function Home() {
             p-24
             relative
             overflow-hidden
-            hidden 
+            hidden
             sm:block
             z-10
-						
+
             bg-[url('/osei.png')]
             bg-cover
             bg-no-repeat
@@ -96,7 +96,7 @@ export default function Home() {
             before:opacity-100
             before:z-[-5]"
             >
-              
+
             </div>
           </div>
         </section>
@@ -196,8 +196,8 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center w-[550px]">
               <div className="sticky top-32 mb-[300px] self-start">
                 <Image
-                  src="/terry.png"
-                  className="w-[250px] h-[350px]"
+                  src="/platzhalterBild.png"
+                  className="w-[250px] h-[350px] object-cover"
                   alt="Picture animation"
                   width={1920}
                   height={1080}
@@ -206,8 +206,8 @@ export default function Home() {
 
               <div className="sticky top-32 mb-[300px] self-end">
                 <Image
-                  src="/osei.png"
-                  className="w-[250px] h-[250px]"
+                  src="/platzhalterBild.png"
+                  className="w-[250px] h-[250px] object-cover"
                   alt="Picture animation"
                   width={1920}
                   height={1080}
@@ -216,8 +216,8 @@ export default function Home() {
 
               <div className="sticky top-[60vh] mb-[300px] self-start">
                 <Image
-                  src="/foto2.png"
-                  className="w-[250px] h-[250px]"
+                  src="/platzhalterBild.png"
+                  className="w-[250px] h-[250px] object-cover"
                   alt="Picture animation"
                   width={1920}
                   height={1080}
@@ -226,8 +226,8 @@ export default function Home() {
 
               <div className="sticky top-[48vh] mb-[300px] self-end">
                 <Image
-                  src="/sanden.png"
-                  className="w-[250px] h-[350px]"
+                  src="/platzhalterBild.png"
+                  className="w-[250px] h-[350px] object-cover"
                   alt="Picture animation"
                   width={1920}
                   height={1080}
