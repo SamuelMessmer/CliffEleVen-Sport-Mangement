@@ -36,7 +36,7 @@ export default function Home() {
           </div>
 
           <div className="hero__media">
-            <img src="/images/osei.webp" alt="Ein Spieler im weißen Trikot mit der Nummer 99 zieht im Strafraum an einem grätschenden Gegenspieler vorbei" width="880" height="590" fetchPriority="high" />
+            <img src="/images/osei.webp" alt="Ein Spieler im weißen Trikot mit der Nummer 99 zieht im Strafraum an einem grätschenden Gegenspieler vorbei" width="880" height="590" />
             <p className="hero__tag"><i aria-hidden="true"></i>Matchday</p>
           </div>
         </div>
@@ -201,26 +201,26 @@ export default function Home() {
               <div className="form__row">
                 <div className="field">
                   <label htmlFor="firstname">Vorname</label>
-                  <input id="firstname" name="firstname" type="text" autoComplete="given-name" placeholder="Dein Vorname" required minLength="2" maxLength="40" />
+                  <input id="firstname" name="firstname" type="text" autoComplete="given-name" placeholder="Dein Vorname" required minLength={2} maxLength={40} />
                 </div>
                 <div className="field">
                   <label htmlFor="lastname">Nachname</label>
-                  <input id="lastname" name="lastname" type="text" autoComplete="family-name" placeholder="Dein Nachname" required minLength="2" maxLength="40" />
+                  <input id="lastname" name="lastname" type="text" autoComplete="family-name" placeholder="Dein Nachname" required minLength={2} maxLength={40} />
                 </div>
               </div>
               <div className="form__row">
                 <div className="field">
                   <label htmlFor="email">E-Mail</label>
-                  <input id="email" name="email" type="email" autoComplete="email" placeholder="name@beispiel.de" required maxLength="120" />
+                  <input id="email" name="email" type="email" autoComplete="email" placeholder="name@beispiel.de" required maxLength={120} />
                 </div>
                 <div className="field">
                   <label htmlFor="telephoneNumber">Telefon <small>(optional)</small></label>
-                  <input id="telephoneNumber" name="telephoneNumber" type="tel" autoComplete="tel" placeholder="+49 123 456789" maxLength="20" />
+                  <input id="telephoneNumber" name="telephoneNumber" type="tel" autoComplete="tel" placeholder="+49 123 456789" maxLength={20} />
                 </div>
               </div>
               <div className="field">
                 <label htmlFor="message">Nachricht</label>
-                <textarea id="message" name="message" placeholder="Verein, Position, Alter und was du dir von einem Berater wünschst …" maxLength="1000"></textarea>
+                <textarea id="message" name="message" placeholder="Verein, Position, Alter und was du dir von einem Berater wünschst …" maxLength={1000}></textarea>
               </div>
               <button className="btn" type="submit">
                 <span data-label="">Anfrage senden</span>
