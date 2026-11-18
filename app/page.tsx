@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main id="top">
@@ -26,11 +28,11 @@ export default function Home() {
               <p><strong>Für alle, die hoch hinaus wollen.</strong> Wir begleiten junge Fußballtalente auf dem Weg nach oben, mit Netzwerk, einem klaren Plan und jemandem an der Seite, der für sie verhandelt.</p>
               <div className="hero__actions">
                 <img className="hero__arrow" src="/images/arrow.webp" alt="" width="219" height="199" />
-                <a className="btn" href="/#kontakt">
+                <Link className="btn" href="/#kontakt">
                   Kontaktiere uns
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                </a>
-                <a className="btn btn--ghost" href="/#kader">Zum Kader</a>
+                </Link>
+                <Link className="btn btn--ghost" href="/#kader">Zum Kader</Link>
               </div>
             </div>
           </div>
@@ -227,7 +229,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
               </button>
               <p className="form__status" role="status" aria-live="polite" data-form-status=""></p>
-              <p className="form__legal">Deine Angaben nutzen wir ausschließlich, um mit dir in Kontakt zu treten. Eine Weitergabe an Dritte oder eine Nutzung für andere Zwecke findet nicht statt. Mehr dazu in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+              <p className="form__legal">Deine Angaben nutzen wir ausschließlich, um mit dir in Kontakt zu treten. Eine Weitergabe an Dritte oder eine Nutzung für andere Zwecke findet nicht statt. Mehr dazu in der <Link href="/datenschutz">Datenschutzerklärung</Link>.</p>
             </form>
           </div>
         </div>
