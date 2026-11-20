@@ -169,14 +169,26 @@ a { color: inherit; }
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 50;
-  transition: background 0.3s ease, border-color 0.3s ease;
-  border-bottom: 1px solid transparent;
 }
-.site-header.is-scrolled,
-.site-header.menu-open {
+/* The frosted background lives on a pseudo-element: a backdrop-filter on the
+   header itself would become the containing block of the fixed mobile menu
+   and squash it to the header's height. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.site-header.is-scrolled::before {
   background: rgba(11, 12, 17, 0.86);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+}
+.site-header.menu-open::before {
+  background: var(--pitch);
   border-bottom-color: var(--line);
 }
 .site-header__bar {
@@ -257,8 +269,10 @@ a { color: inherit; }
     flex-direction: column;
     align-items: stretch;
     gap: 2rem;
-    padding: 2rem var(--gutter-r) 3rem var(--gutter-l);
-    background: var(--ink);
+    padding: 1.5rem max(var(--gutter-r), 4vw) max(2.5rem, env(safe-area-inset-bottom, 0px)) max(var(--gutter-l), 4vw);
+    overflow-y: auto;
+    background: var(--pitch);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
     transform: translateY(-8px);
     opacity: 0;
     visibility: hidden;
@@ -281,6 +295,8 @@ a { color: inherit; }
     border-bottom: 1px solid var(--line);
   }
   .nav__links a::after { display: none; }
+  .nav__links a:hover,
+  .nav__links a:focus-visible { color: var(--signal-text); }
   .nav .btn { justify-content: center; padding: 1rem; font-size: 0.95rem; }
 }
 
