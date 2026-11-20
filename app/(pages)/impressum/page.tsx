@@ -2,9 +2,10 @@ import React from "react";
 
 const Impressum = () => {
   return (
-    <div className="flex flex-col gap-10 justify-center items-center mx-2 sm:mx-56 mt-12">
+    <main className="legal">
+      <div className="wrap">
       <div>
-        <h1 className="font-extrabold text-7xl">Impressum</h1>
+        <h1>Impressum</h1>
       </div>
       <div className="flex flex-col gap-5 items-start">
         <p>
@@ -76,6 +77,7 @@ const Impressum = () => {
         </p>
       </div>
     </div>
+    </main>
   );
 };
 
